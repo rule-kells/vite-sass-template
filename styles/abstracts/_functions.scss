@@ -11,11 +11,19 @@
   }
 }
 
-@function fs($font-size) {
-  @if map.has-key($font-sizes, $font-size) {
-    @return map.get($font-sizes, $font-size);
+// @function fs($font-size) {
+//   @if map.has-key($font-sizes, $font-size) {
+//     @return map.get($font-sizes, $font-size);
+//   } @else {
+//     @error '$font-sizes does not have that size!';
+//   }
+// }
+
+@function fw($value) {
+  @if map.has-key($fw, $value) {
+    @return map.get($fw, $value);
   } @else {
-    @error '$font-sizes does not have that size!';
+    @error '$sizes does not have that size!';
   }
 }
 

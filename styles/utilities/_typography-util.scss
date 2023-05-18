@@ -1,15 +1,48 @@
 @use "../abstracts" as *;
 
-@each $unit-name, $unit-value in $font-sizes {
-  .fs-#{$unit-name} {
-    font-size: $unit-value;
-  }
+// @each $unit-name, $unit-value in $font-sizes {
+//   .fs-heading-#{$unit-name} {
+//     font-size: $unit-value;
+//   }
+// }
+
+.fs-heading-xl {
+  font-size: var(--fs-heading-xl);
+  line-height: 1.1;
+  letter-spacing: -2%;
+}
+
+.fs-heading-s {
+  font-size: var(--fs-heading-s);
+}
+
+.fs-heading-xs {
+  font-size: var(--fs-heading-xs);
 }
 
 .fw-400 {
-  font-weight: $fw-400;
+  font-weight: fw(400);
+}
+
+.fw-400-italic {
+  font-weight: fw(400);
+  font-style: italic;
 }
 
 .fw-700 {
-  font-weight: $fw-700;
+  font-weight: fw(700);
+}
+
+.fw-700-italic {
+  font-weight: fw(700);
+  font-style: italic;
+}
+
+.fw-800 {
+  font-weight: fw(800);
+}
+
+.fw-800-italic {
+  font-weight: fw(800);
+  font-style: italic;
 }
