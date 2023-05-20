@@ -1,3 +1,5 @@
+@use "abstract" as *;
+
 // $sizes: (
 //   8: 0.5rem,
 //   12: 0.75rem,
@@ -19,8 +21,20 @@ $units: (
   48: 3rem,
   56: 3.5rem,
   64: 4rem,
-  100: 6.25rem,
-  200: 12.5rem,
+  72: 4.5rem,
+  80: 5rem,
   730: 45.625rem,
-  840: 52.5rem,
+  1110: 69.375rem,
 );
+
+$hero-padding: clamp(15rem, 15vh, 20rem);
+$section-padding: clamp(3rem, 10vh, 7rem);
+
+$container-inline-padding: 1rem;
+$container-max-width: pxToRem(708px);
+$container-max-width-wide: pxToRem(1110px);
+
+$card-body-padding: clamp(2rem, 3.5vw, 5rem);
+
+$grid-gap: 1.5rem;
+$flex-group-gap: 1rem;

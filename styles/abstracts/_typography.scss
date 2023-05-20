@@ -1,31 +1,32 @@
 @use "../abstracts/mixins" as *;
 
-:root {
-  --fs-heading-xl: 3.5rem;
-  --fs-heading-s: 1.25rem;
-  --fs-heading-xs: 0.75rem;
-  --fs-heading-body: 1rem;
-}
+$ff-primary: "ainslie-sans", sans-serif;
+$ff-secondary: "noto-sans", sans-serif;
 
-@include mq(tablet) {
-  :root {
-    --fs-heading-xl: 6.5rem;
-    --fs-heading-s: 2rem;
-    --fs-heading-xs: 0.875rem;
-    --fs-heading-body: 1.125rem;
-  }
-}
+// :root {
+//   --fs-heading-xl: 3.5rem;
+//   --fs-heading-s: 1.25rem;
+//   --fs-heading-xs: 0.75rem;
+//   --fs-heading-body: 1rem;
+// }
 
-$ff-primary: "Poppins", sans-serif;
-//$ff-secondary
+// @include mq(tablet) {
+//   :root {
+//     --fs-heading-xl: 6.5rem;
+//     --fs-heading-s: 2rem;
+//     --fs-heading-xs: 0.875rem;
+//     --fs-heading-body: 1.125rem;
+//   }
+// }
 
-// $font-sizes: (
-//   xl: 3.75rem,
-//   l: 3rem,
-//   m: 2rem,
-//   s: 1.125rem,
-//   xs: 1rem,
-// );
+$font-sizes: (
+  xl: clamp(2.5rem, 0.5rem + 10vw, 5rem),
+  l: clamp(2.5rem, 0.5rem + 7vw, 3.75rem),
+  m: clamp(1.4rem, 0.5rem + 3vw, 2.6875rem),
+  s: 1.3125rem,
+  xs: 1.125rem,
+  body: 1rem,
+);
 
 $fw: (
   400: 400,
