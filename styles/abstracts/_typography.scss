@@ -1,23 +1,29 @@
 @use "../abstracts/mixins" as *;
 
-$ff-primary: "ainslie-sans", sans-serif;
-$ff-secondary: "noto-sans", sans-serif;
+// for the logo and any branding or related to brand identity 
+// letter spacing, uppercasing 
+// $ff-logo: new-farm, sans-serif;
 
-// :root {
-//   --fs-heading-xl: 3.5rem;
-//   --fs-heading-s: 1.25rem;
-//   --fs-heading-xs: 0.75rem;
-//   --fs-heading-body: 1rem;
-// }
+// for headings, navs, buttons
+// letter spacing, uppercasing 
+// $ff-primary: gira-sans, sans-serif;
 
-// @include mq(tablet) {
-//   :root {
-//     --fs-heading-xl: 6.5rem;
-//     --fs-heading-s: 2rem;
-//     --fs-heading-xs: 0.875rem;
-//     --fs-heading-body: 1.125rem;
-//   }
-// }
+// body 
+// $ff-secondary: merriweather,serif;
+
+$ff-primary: "Space Grotesk", sans-serif;
+
+$fs-heading-xl: 2.5rem;
+$fs-heading-l: 2rem;
+$fs-heading-m: 1.5rem;
+$fs-heading-s: 1.125rem;
+$fs-heading-xs: 1rem;
+$fs-logo-font: 1.5rem;
+$fs-body: 1rem;
+
+
+$fw-500: 500;
+$fw-700: 700;
 
 $font-sizes: (
   xl: clamp(2.5rem, 0.5rem + 10vw, 5rem),

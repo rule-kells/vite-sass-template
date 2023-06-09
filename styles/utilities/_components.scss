@@ -1,34 +1,94 @@
 @use "../abstracts/" as *;
 
-// .container {
-//   width: clamp(20ch, 90%, unit(1110));
-//   margin-inline: auto;
-// }
 
-// layout
+//example of container and modifications based on wide display
 // .container {
 //   --max-width: #{$container-max-width};
-//   --padding: unit(16);
+//   --padding: #{$container-inline-padding} * 2;
 
-//   width: min(var(--max-width), 100% - ( var(--padding) * 2) );
+//   width: min(100% - var(--padding), var(--max-width));
 //   margin-inline: auto;
 // }
 
 .container {
-  --max-width: #{$container-max-width};
-  --padding: #{$container-inline-padding} * 2;
+  --max-width: #{pxToRem($container-max-width)};
+  --padding: #{$padding-mod} * 2;
 
   width: min(100% - var(--padding), var(--max-width));
+  // padding-inline: 1rem;
   margin-inline: auto;
 }
 
-.container[data-type="wide"] {
-  --max-width: #{$container-max-width-wide};
+//example of basic outline of container data type
+// .container[data-type="wide"] {
+//   --max-width: #{$container-max-width-wide};
+// }
+
+// changing data data type based on device 
+@include mq(tablet) {
+  .container[data-type="wide"] {
+    --padding: #{$padding-mod} * 4;
+  }
 }
 
-.flow > * + * {
+@include mq(desktop) {
+  .container[data-type="wide"] {
+    --max-width: #{pxToRem($container-max-width-wide)};
+  }
+}
+
+//probably not needed but just demonstrates that it can be modified by 
+//where it is in the website
+// .container[data-type="hero"] {
+//   --max-width: #{pxToRem(735px)};
+
+//   width: min(100%, var(--max-width));
+//   // padding-inline: 1rem;
+//   // padding-inline: var(--padding);
+//   margin-inline: auto;
+
+//   @include mq(tablet) {
+//     // padding-inline: 0;
+//     margin-inline-start: auto;
+//     margin-inline-end: 0;
+//   }
+
+//   @include mq(desktop) {
+//     --max-width: #{pxToRem(1110px)};
+//   }
+// }
+
+.flow>*+* {
   margin-top: var(--gap, 1rem);
 }
+
+//flexible flexbox compontent 
+// .d-flex-2-col-spaced {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: center;
+//   column-gap: var(--flex-column-gap, $flex-group-gap);
+//   row-gap: var(--flex-row-gap, calc($flex-group-gap / 2));
+//   // width: fit-content;
+
+//   &[data-row="true"] {
+//     flex-direction: row;
+//     justify-content: space-between;
+//   }
+// }
+
+// @include mq(desktop) {
+//   .d-flex-2-col-spaced[data-footer="true"] {
+//     flex-direction: row;
+//     justify-content: space-between;
+//     align-items: flex-start;
+//   }
+// }
+
+// .d-flex-2-col-spaced[data-type="start"] {
+//   align-items: flex-start;
+// }
 
 .flex-group {
   display: flex;
@@ -46,7 +106,7 @@
   display: grid;
   gap: var(--grid-gap, $grid-gap);
 
-  & > * {
+  &>* {
     max-width: pxToRem(500px);
     margin-inline: auto;
   }
@@ -60,11 +120,37 @@
 .grid-auto-fit {
   display: grid;
   gap: var(--grid-gap, $grid-gap);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(pxToRem(250px), 100%), 1fr)
-  );
+  grid-template-columns: repeat(auto-fit,
+      minmax(min(pxToRem(250px), 100%), 1fr));
 }
+
+// more grid components 
+// .d-grid-2-col {
+//   display: grid;
+//   justify-content: center;
+//   grid-template-rows: pxToRem(383px) pxToRem(244px);
+//   grid-template-columns: pxToRem(343px);
+//   align-items: center;
+
+//   @include mq(tablet) {
+//     grid-template-columns: pxToRem(413.56px) pxToRem(30.88px) pxToRem(290.56px);
+//     justify-content: space-between;
+//   }
+// }
+
+// .grid-auto-fit {
+//   display: grid;
+//   gap: var(--grid-gap, $grid-gap);
+//   grid-template-columns: repeat(auto-fit,
+//       minmax(min(pxToRem(342px), 100%), 1fr));
+
+//   align-items: center;
+
+//   @include mq(desktop) {
+//     grid-template-columns: repeat(auto-fit,
+//         minmax(min(pxToRem(540px), 100%), 1fr));
+//   }
+// }
 
 .interactive-figure {
   position: relative;
@@ -95,11 +181,17 @@
   text-transform: uppercase;
   font-weight: $fw-700;
 
-  & + p {
+  &+p {
     margin-top: 0;
   }
 }
 
 .box-shadow-1 {
   box-shadow: 0 0 0.75rem rgb(0 0 0 / 0.25);
+}
+
+
+.underline {
+  text-decoration: underline pxToRem(4px) solid clr(primary, 300);
+  text-underline-offset: 0.6rem;
 }
